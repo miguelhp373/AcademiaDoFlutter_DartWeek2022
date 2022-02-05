@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_utils/src/extensions/context_extensions.dart';
 import 'package:vaquinha_burguer/app/core/ui/widgets/vaquinha_button.dart';
 
 class SplashPage extends StatelessWidget {

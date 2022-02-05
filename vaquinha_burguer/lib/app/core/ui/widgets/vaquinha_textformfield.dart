@@ -6,23 +6,26 @@ class VaquinhaTextformfield extends StatelessWidget {
   final String label;
   final TextEditingController? controller;
   final bool obscureText;
+  final TextInputType? keyboardType;
   final FormFieldValidator<String>? validator;
   final ValueChanged<String>? onchange;
 
-  const VaquinhaTextformfield(
-      {Key? key,
-      required this.label,
-      this.controller,
-      this.validator,
-      this.onchange,
-      this.obscureText = false})
-      : super(key: key);
+  const VaquinhaTextformfield({
+    Key? key,
+    required this.label,
+    this.controller,
+    this.validator,
+    this.onchange,
+    this.obscureText = false,
+    this.keyboardType,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
       obscureText: obscureText,
+      keyboardType: keyboardType,
       validator: validator,
       onChanged: onchange,
       cursorColor: context.theme.primaryColor,
