@@ -1,4 +1,4 @@
-# vakinha_burger_mobile
+# Vaquinha Burguer
 
 ## Aplicativo completo de delivery com o pagamento por pix no sistema da gerencianet
 
