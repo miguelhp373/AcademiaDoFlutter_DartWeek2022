@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:vaquinha_burguer/app/core/constants/constants.dart';
 import 'package:vaquinha_burguer/app/core/mixings/loader_mixin.dart';
 import 'package:vaquinha_burguer/app/core/mixings/messages_mixin.dart';
 import 'package:vaquinha_burguer/app/core/rest_client/rest_client.dart';
@@ -32,20 +34,24 @@ class RegisterController extends GetxController with LoaderMixin, MessageMixin {
     try {
       _loading.toggle();
 
-      /*final UserModel =*/ await _authRepository.register(
-          name, email, password);
+      final userLogged = await _authRepository.register(
+        name,
+        email,
+        password,
+      );
+      GetStorage().write(Constants.USER_KEY, userLogged.id);
 
       _loading.toggle();
 
-      Get.back(); //volta para o login
+      // Get.back(); //volta para o login
 
-      _message(
-        MessageModel(
-          title: 'Sucesso',
-          message: 'Cadastro Realizado Com Sucesso',
-          type: MessageType.info,
-        ),
-      );
+      // _message(
+      //   MessageModel(
+      //     title: 'Sucesso',
+      //     message: 'Cadastro Realizado Com Sucesso',
+      //     type: MessageType.info,
+      //   ),
+      // );
     } on RestClientException catch (e, s) {
       _loading.toggle();
       log('Erro ao Registrar Usuário', error: e, stackTrace: s);

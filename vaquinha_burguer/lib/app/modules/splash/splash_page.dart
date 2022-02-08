@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vaquinha_burguer/app/core/ui/widgets/vaquinha_button.dart';
+import 'package:vaquinha_burguer/app/modules/splash/splash_controller.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends GetView<SplashController> {
   const SplashPage({Key? key}) : super(key: key);
 
   @override
@@ -37,8 +38,8 @@ class SplashPage extends StatelessWidget {
                   ),
                   VaquinhaButton(
                     label: 'Acessar',
-                    onPressed: () {
-                      Get.toNamed('/auth/login');
+                    onPressed: () => {
+                      controller.checkedLogged(),
                     },
                     width: context.widthTransformer(reducedBy: 40),
                   )
