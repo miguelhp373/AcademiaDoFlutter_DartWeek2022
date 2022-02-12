@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vaquinha_burguer/app/core/ui/formatter_help.dart';
 import 'package:vaquinha_burguer/app/core/ui/vaquinha_uI.dart';
 import 'package:vaquinha_burguer/app/models/product_model.dart';
@@ -11,7 +12,10 @@ class ProductTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        //direciona para tela, e passa os dados do produto
+        Get.toNamed('/product_detail', arguments: product);
+      },
       child: Container(
         margin: const EdgeInsets.all(10),
         height: 80,
@@ -20,7 +24,7 @@ class ProductTile extends StatelessWidget {
             Container(
               width: 80,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(10),
                   bottomLeft: Radius.circular(10),
                 ),
@@ -34,7 +38,7 @@ class ProductTile extends StatelessWidget {
             Expanded(
                 child: Container(
               color: Colors.white,
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

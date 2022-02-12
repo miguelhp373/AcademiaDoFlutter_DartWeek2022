@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:vaquinha_burguer/app/core/ui/widgets/icon_badge.dart';
 import 'package:vaquinha_burguer/app/core/ui/widgets/vaquinha_appbar.dart';
 import './home_controller.dart';
 
@@ -21,8 +22,11 @@ class HomePage extends GetView<HomeController> {
               icon: Icon(Icons.list),
               label: 'Produtos',
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
+            BottomNavigationBarItem(
+              icon: IconBadge(
+                number: controller.totalProductsInShoppingCard,
+                icon: Icons.shopping_cart,
+              ),
               label: 'Carrinho',
             ),
             const BottomNavigationBarItem(

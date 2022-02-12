@@ -1,17 +1,27 @@
 import 'package:flutter/src/widgets/navigator.dart';
 import 'package:get/get.dart';
 import 'package:vaquinha_burguer/app/core/services/auth_service.dart';
+import 'package:vaquinha_burguer/app/core/services/shopping_card_service.dart';
 import 'package:vaquinha_burguer/app/modules/menu/menu_bindings.dart';
 import 'package:vaquinha_burguer/app/modules/menu/menu_page.dart';
 
 class HomeController extends GetxController {
   static const NAVIGATOR_KEY = 1;
 
+  final ShoppingCardService _shoppingCardService;
+
   //variavel observavel, para controlar o tab index dinamicamente
   final _tabIndex = 0.obs;
 
   // varivel que identifica a pagina
   final _tabs = ['/menu', '/order/shopping_cart', '/exit'];
+
+  HomeController({
+    required ShoppingCardService shoppingCardService,
+  }) : _shoppingCardService = shoppingCardService;
+
+  //variavel para pegar a quantidade de produtos no carrinho
+  int get totalProductsInShoppingCard => _shoppingCardService.totalProducts;
 
 //seta a navegação
   set tabIndex(int index) {
