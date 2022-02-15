@@ -25,25 +25,27 @@ class SplashPage extends GetView<SplashController> {
             ),
             Align(
               alignment: Alignment.center,
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: context.heightTransformer(reducedBy: 85),
-                  ),
-                  Image.asset(
-                    'assets/images/logo.png',
-                  ),
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  VaquinhaButton(
-                    label: 'Acessar',
-                    onPressed: () => {
-                      controller.checkedLogged(),
-                    },
-                    width: context.widthTransformer(reducedBy: 40),
-                  )
-                ],
+              child: Expanded(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: context.heightTransformer(reducedBy: 85),
+                    ),
+                    Image.asset(
+                      'assets/images/logo.png',
+                    ),
+                    const SizedBox(
+                      height: 60,
+                    ),
+                    VaquinhaButton(
+                      label: 'Acessar',
+                      onPressed: () => {
+                        controller.checkedLogged(),
+                      },
+                      width: context.widthTransformer(reducedBy: 40),
+                    )
+                  ],
+                ),
               ),
             )
           ],

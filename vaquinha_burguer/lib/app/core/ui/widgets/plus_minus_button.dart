@@ -66,17 +66,17 @@ class PlusMinusButton extends StatelessWidget {
             ),
             const Spacer(),
             Container(
-              margin: const EdgeInsets.only(
-                left: 20,
-                right: 10,
-              ),
-              constraints: const BoxConstraints(
-                minWidth: 70,
-              ),
-              child: Text(
-                FormatterHelp.formatCurrency(
-                  calculateTotal ? price * quantity : price,
-                ),
+              margin: const EdgeInsets.only(left: 8, right: 5),
+              constraints: const BoxConstraints(minWidth: 70),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    FormatterHelp.formatCurrency(
+                      calculateTotal ? price * quantity : price,
+                    ),
+                  ),
+                ],
               ),
             )
           ],
